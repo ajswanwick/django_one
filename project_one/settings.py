@@ -29,7 +29,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = "eo_@x5@z1p1(ec-10r)y3#^ghrl-h3--a7zqslecow9k7il*c-"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*',
                      'https://*.herokuapp.com'
@@ -45,6 +45,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount', 
     'cloudinary_storage',
     'cloudinary',
     'my_app',
@@ -58,9 +61,25 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',  # Default Django authentication
+    'allauth.account.auth_backends.AuthenticationBackend',  # Allauth authentication
+]
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/accounts/login/'
+
+# Allauth settings
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'  # Use email or username to log in
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'optional'  # 'mandatory' if you want to enforce verification
+ACCOUNT_LOGOUT_ON_PASSWORD_CHANGE = True
+
 
 ROOT_URLCONF = 'project_one.urls'
 
