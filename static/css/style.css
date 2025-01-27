@@ -1,0 +1,15 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+   }
+
+h1 {
+    color: red;
+    font-size: x-large;
+}
+
+
+.navbar {
+  width: 100%;
+}
