@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}Football Fan Network{% endblock %}
+
+{% block content %}
+
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow-lg" style="width: 24rem;">
+        <div class="card-body">
+            <h1 id="message">Football Fan Network</h1>
+            <form method="POST" action="">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="id_username" class="form-label">Username</label>
+                    <input
+                        type="text"
+                        name="username"
+                        id="id_username"
+                        class="form-control"
+                        placeholder="Enter your username"
+                        required
+                    >
+                </div>
+                <div class="mb-3">
+                    <label for="id_password" class="form-label">Password</label>
+                    <input
+                        type="password"
+                        name="password"
+                        id="id_password"
+                        class="form-control"
+                        placeholder="Enter your password"
+                        required
+                    >
+                </div>
+                <button type="submit" class="btn btn-success w-100">Log In</button>
+            </form>
+            <p class="text-center text-muted mt-2">
+                <a href="{% url 'account_reset_password' %}" class="link-primary">Forgot Password?</a>
+            </p>
+            <p id="form-text" class="text-center text-muted mt-3">
+                Don't have an account? 
+                <a href="{% url 'account_signup' %}" class="link-primary">Sign up</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
