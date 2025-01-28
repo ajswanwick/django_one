@@ -19,6 +19,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('my_app.urls'), name='home'),  # Redirects to my_app.urls   
+    path('accounts/', include('allauth.urls')),  # Redirects to allauth.urls
+    path('', include('my_app.urls'), ),  # Redirects to my_app.urls   
 ]
 
