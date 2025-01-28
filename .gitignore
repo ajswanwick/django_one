@@ -1,0 +1,32 @@
+# Python cache files
+__pycache__/
+*/__pycache__/
+*.pyc
+.python-312.pyc
+env.cpython-312.pyc
+
+# Environment files
+env.py
+myenv/
+
+# Environment configuration
+pyvenv.cfg
+
+# Database
+db.sqlite3
+
+# Virtual environment (if used)
+.venv/
+env/
+
+# IDE specific
+.vscode/
+
+# Django static & media folders
+/static/
+/media/
+
+# Cache directories from your structure
+/_pycache_/
+/my_app/_pycache_/
+/project_one/_pycache_/
