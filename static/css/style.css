@@ -1,11 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bowlby+One&family=Luckiest+Guy&family=Rampart+One&family=Tourney:ital,wght@0,900;1,900&display=swap');
 
-body{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    
-}
+
 #message {
     font-family: 'Tourney', cursive;
     color: green;
@@ -25,3 +20,12 @@ body{
   width: 100%;
 }
 
+/*----------------------Profile page----------------------*/
+
+#profile_page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}

@@ -20,6 +20,7 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),  # Redirects to allauth.urls
+    path('profile/', include('my_app.urls')),  # Redirects to profiles.urls
     path('', include('my_app.urls'), ),  # Redirects to my_app.urls   
 ]
 

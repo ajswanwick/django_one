@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from django.utils import timezone
 
 
 # Create your models here.
@@ -44,6 +45,7 @@ class Post(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
     image = CloudinaryField('image ', default = 'goals-post-pic')
+    created_at = models.DateTimeField(default=timezone.now) # Set the date and time automatically when the post is created
   
 
     def __str__(self):

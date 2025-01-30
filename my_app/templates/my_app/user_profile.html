@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div id = 'profile_page'>
+    
+    
+    <h2>{{ user.username }}'s Profile</h2>
+    
+    <!-- Profile Information -->
+    <div class="profile-info">
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>Member since:</strong> {{ user.date_joined|date:"F d, Y" }}</p>
+    </div>
+    
+    <hr>
+    
+    <!-- Post Form -->
+    <h3>Create a New Post</h3>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Post</button>
+    </form>
+    
+    <hr>
+    
+    <!-- User's Posts -->
+    <h3>Your Posts</h3>
+    {% for post in posts %}
+        <div class="post">
+            <p><strong>{{ post.created_at|date:"F d, Y H:i" }}</strong></p>
+            <p>{{ post.content }}</p>
+            {% if post.image %}
+                <img src="{{ post.image.url }}" alt="Post Image" width="300px">
+            {% endif %}
+            <hr>
+        </div>
+    {% empty %}
+        <p>You haven't posted anything yet.</p>
+    {% endfor %}
+    <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+    
+    {% endblock %}
+
+

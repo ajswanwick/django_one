@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os 
 import dj_database_url
+from django.urls import reverse_lazy
 
 if os.path.isfile("env.py"):
     import env
@@ -73,8 +74,8 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',  # Allauth authentication
 ]
 
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/profile/{username}/'
+LOGOUT_REDIRECT_URL = '/'
 
 # Allauth settings
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'  # Use email or username to log in
