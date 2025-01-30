@@ -33,7 +33,10 @@ SECRET_KEY = "eo_@x5@z1p1(ec-10r)y3#^ghrl-h3--a7zqslecow9k7il*c-"
 DEBUG = True
 
 ALLOWED_HOSTS = ['*',
-                     'https://*.herokuapp.com'
+                     'https://*.herokuapp.com',
+                     'footballfan-network.co.uk',  # Your custom domain
+                      'www.footballfan-network.co.uk',  # Your custom domain
+                      'pacific-dryosaurus-ya08k6mnskrbphx579fxxv87.herokudns.com',  # Heroku domain
                 ]
 
 
